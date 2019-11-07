@@ -1,0 +1,13 @@
+{
+  "name": "@components/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "keywords": [],
+  "author": "",
+  "peerDependencies": {
+    "@components/css": "*",
+    "vue": "*"
+  }
+}

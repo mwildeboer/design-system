@@ -1,0 +1,160 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+// Base
+//////////////////////////////////////////////////////////////////////////////////////////
+
+@mixin button-variant(
+  $background-color: null,
+  $border-color: null,
+  $color: null,
+  $hover-background-color: null,
+  $hover-border-color: null,
+  $hover-color: null,
+  $disabled-background-color: null,
+  $disabled-border-color: null,
+  $disabled-color: null
+) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
+
+  @if $hover-background-color != null or $hover-border-color != null or $hover-color != null {
+    &:hover,
+    &:focus {
+      background-color: $hover-background-color;
+      border-color: $hover-border-color;
+      color: $hover-color;
+    }
+  }
+
+  @if $disabled-background-color != null or $disabled-border-color != null or $disabled-color != null {
+    &:disabled {
+      background-color: $disabled-background-color;
+      border-color: $disabled-border-color;
+      color: $disabled-color;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Primary
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-primary-background-color: $color-primary !default;
+$button-primary-border-color: transparent !default;
+$button-primary-color: $color-white !default;
+$button-primary-hover-background-color: null !default;
+$button-primary-hover-border-color: null !default;
+$button-primary-hover-color: null !default;
+$button-primary-disabled-background-color: null !default;
+$button-primary-disabled-border-color: null !default;
+$button-primary-disabled-color: null !default;
+
+@mixin button-primary {
+  @include button-variant(
+    $background-color: $button-primary-background-color,
+    $border-color: $button-primary-border-color,
+    $color: $button-primary-color,
+    $hover-background-color: $button-primary-hover-background-color,
+    $hover-border-color: $button-primary-hover-border-color,
+    $hover-color: $button-primary-hover-color,
+    $disabled-background-color: $button-primary-disabled-background-color,
+    $disabled-border-color: $button-primary-disabled-border-color,
+    $disabled-color: $button-primary-disabled-color
+  );
+  @if (mixin-exists(override-button-primary)) {
+    @include override-button-primary();
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Secondary
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-secondary-background-color: $color-secondary !default;
+$button-secondary-border-color: transparent !default;
+$button-secondary-color: $color-black !default;
+$button-secondary-hover-background-color: null !default;
+$button-secondary-hover-border-color: null !default;
+$button-secondary-hover-color: null !default;
+$button-secondary-disabled-background-color: null !default;
+$button-secondary-disabled-border-color: null !default;
+$button-secondary-disabled-color: null !default;
+
+@mixin button-secondary {
+  @include button-variant(
+    $background-color: $button-secondary-background-color,
+    $border-color: $button-secondary-border-color,
+    $color: $button-secondary-color,
+    $hover-background-color: $button-secondary-hover-background-color,
+    $hover-border-color: $button-secondary-hover-border-color,
+    $hover-color: $button-secondary-hover-color,
+    $disabled-background-color: $button-secondary-disabled-background-color,
+    $disabled-border-color: $button-secondary-disabled-border-color,
+    $disabled-color: $button-secondary-disabled-color
+  );
+  @if (mixin-exists(override-button-secondary)) {
+    @include override-button-secondary();
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Success
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-success-background-color: $color-success !default;
+$button-success-border-color: transparent !default;
+$button-success-color: $color-white !default;
+$button-success-hover-background-color: null !default;
+$button-success-hover-border-color: null !default;
+$button-success-hover-color: null !default;
+$button-success-disabled-background-color: null !default;
+$button-success-disabled-border-color: null !default;
+$button-success-disabled-color: null !default;
+
+@mixin button-success {
+  @include button-variant(
+    $background-color: $button-success-background-color,
+    $border-color: $button-success-border-color,
+    $color: $button-success-color,
+    $hover-background-color: $button-success-hover-background-color,
+    $hover-border-color: $button-success-hover-border-color,
+    $hover-color: $button-success-hover-color,
+    $disabled-background-color: $button-success-disabled-background-color,
+    $disabled-border-color: $button-success-disabled-border-color,
+    $disabled-color: $button-success-disabled-color
+  );
+  @if (mixin-exists(override-button-success)) {
+    @include override-button-success();
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Danger
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-danger-background-color: $color-danger !default;
+$button-danger-border-color: transparent !default;
+$button-danger-color: $color-white !default;
+$button-danger-hover-background-color: null !default;
+$button-danger-hover-border-color: null !default;
+$button-danger-hover-color: null !default;
+$button-danger-disabled-background-color: null !default;
+$button-danger-disabled-border-color: null !default;
+$button-danger-disabled-color: null !default;
+
+@mixin button-danger {
+  @include button-variant(
+    $background-color: $button-danger-background-color,
+    $border-color: $button-danger-border-color,
+    $color: $button-danger-color,
+    $hover-background-color: $button-danger-hover-background-color,
+    $hover-border-color: $button-danger-hover-border-color,
+    $hover-color: $button-danger-hover-color,
+    $disabled-background-color: $button-danger-disabled-background-color,
+    $disabled-border-color: $button-danger-disabled-border-color,
+    $disabled-color: $button-danger-disabled-color
+  );
+  @if (mixin-exists(override-button-danger)) {
+    @include override-button-danger();
+  }
+}

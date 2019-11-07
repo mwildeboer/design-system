@@ -1,0 +1,12 @@
+@import "_base";
+@import "_variants";
+
+@mixin ul-classes($include-variants: true) {
+  @include block("ul") {
+    @include ul();
+
+    @include modifier("compact") {
+      @include ul-compact();
+    }
+  }
+}

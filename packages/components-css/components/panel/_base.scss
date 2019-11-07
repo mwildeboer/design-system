@@ -1,0 +1,17 @@
+$panel-background-color: $color-white !default;
+$panel-border-radius: $spacing-1 !default;
+$panel-box-shadow: $box-shadow-base !default;
+$panel-padding: $spacing-4 !default;
+
+@mixin panel {
+  box-sizing: border-box;
+  background-color: $panel-background-color;
+  border-radius: $panel-border-radius;
+  box-shadow: $panel-box-shadow;
+  padding: $panel-padding;
+  max-width: 100%;
+
+  @if (mixin-exists(override-panel)) {
+    @include override-panel();
+  }
+}

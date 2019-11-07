@@ -1,0 +1,38 @@
+@import "_base";
+@import "_fluid";
+@import "_sizes";
+@import "_variants";
+
+@mixin button-classes() {
+  @include block("button") {
+    @include button();
+
+    @include modifier("fluid") {
+      @include button-fluid();
+    }
+
+    @include modifier("small") {
+      @include button-small();
+    }
+
+    @include modifier("large") {
+      @include button-large();
+    }
+
+    @include modifier("primary") {
+      @include button-primary();
+    }
+
+    @include modifier("secondary") {
+      @include button-secondary();
+    }
+
+    @include modifier("success") {
+      @include button-success();
+    }
+
+    @include modifier("danger") {
+      @include button-danger();
+    }
+  }
+}

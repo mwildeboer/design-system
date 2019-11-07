@@ -1,0 +1,15 @@
+$h6-color: $color-text !default;
+$h6-font-size: $font-size-3 !default;
+$h6-line-height: 1.2 !default;
+$h6-margin: 0 0 $spacing-2 0 !default;
+
+@mixin h6 {
+  color: $h6-color;
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+  margin: $h6-margin;
+
+  @if (mixin-exists(override-h6)) {
+    @include override-h6();
+  }
+}

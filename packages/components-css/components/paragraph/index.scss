@@ -1,0 +1,7 @@
+@import "_base";
+
+@mixin paragraph-classes {
+  @include block("paragraph") {
+    @include paragraph();
+  }
+}

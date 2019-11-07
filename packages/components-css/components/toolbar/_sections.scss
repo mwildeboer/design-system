@@ -1,0 +1,29 @@
+$toolbar-section-padding: 0 !default;
+
+@mixin toolbar-section() {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @if (mixin-exists(override-toolbar-section)) {
+    @include override-toolbar-section();
+  }
+}
+
+@mixin toolbar-section-fill() {
+  flex: 1;
+
+  @if (mixin-exists(override-toolbar-section-fill)) {
+    @include override-toolbar-section-fill();
+  }
+}
+
+@mixin toolbar-section-centered() {
+  flex: 1;
+  justify-content: center;
+
+  @if (mixin-exists(override-toolbar-section-centered)) {
+    @include override-toolbar-section-centered();
+  }
+}

@@ -1,0 +1,27 @@
+$ul-margin: 0 !default;
+$ul-padding: 0 !default;
+$ul-li-margin-top: $spacing-2 !default;
+$ul-li-padding: 0 !default;
+
+@mixin ul {
+  box-sizing: border-box;
+  margin: $ul-margin;
+  padding: $ul-padding;
+
+  > li {
+    box-sizing: border-box;
+    padding: $ul-li-padding;
+
+    &:not(:first-child) {
+      margin-top: $ul-li-margin-top;
+    }
+
+    @if (mixin-exists(override-ul-li)) {
+      @include override-ul-li();
+    }
+  }
+
+  @if (mixin-exists(override-ul)) {
+    @include override-ul();
+  }
+}

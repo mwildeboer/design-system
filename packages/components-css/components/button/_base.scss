@@ -1,0 +1,96 @@
+$button-background-color: transparent !default;
+$button-border-color: $color-primary !default;
+$button-border-radius: $spacing-1 !default;
+$button-color: $color-primary !default;
+$button-font-size: $font-size-3 !default;
+$button-font-weight: 600 !default;
+$button-height: $spacing-10 !default;
+$button-line-height: $spacing-4 !default;
+$button-padding: 0 $spacing-4 !default;
+
+$button-hover-background-color: null !default;
+$button-hover-border-color: null !default;
+$button-hover-color: null !default;
+$button-disabled-background-color: null !default;
+$button-disabled-border-color: null !default;
+$button-disabled-color: null !default;
+
+$button-children-margin-left: $spacing-2 !default;
+$button-children-margin-right: $spacing-2 !default;
+
+@mixin button {
+  background-color: $button-background-color;
+  border-color: $button-border-color;
+  border-radius: $button-border-radius;
+  color: $button-color;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  height: $button-height;
+  line-height: $button-line-height;
+  padding: $button-padding;
+
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  position: relative;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+
+  > * {
+    margin-left: $button-children-margin-left;
+    margin-right: $button-children-margin-right;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: $button-disabled-background-color;
+    border-color: $button-disabled-border-color;
+    color: $button-disabled-color;
+  }
+
+  &:hover {
+    background-color: $button-hover-background-color;
+    border-color: $button-hover-border-color;
+    color: $button-hover-color;
+    text-decoration: none;
+
+    @if (mixin-exists(override-button-hover)) {
+      @include override-button-hover();
+    }
+  }
+
+  &:focus {
+    outline: 0;
+    @if (mixin-exists(override-button-focus)) {
+      @include override-button-focus();
+    }
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  @if (mixin-exists(override-button)) {
+    @include override-button();
+  }
+}

@@ -1,0 +1,65 @@
+$list-item-padding-left: $element-gutter !default;
+$list-item-padding-top: $spacing-3 !default;
+$list-item-padding-right: $element-gutter !default;
+$list-item-padding-bottom: $spacing-3 !default;
+
+@mixin list-row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: $list-item-padding-top $list-item-padding-right $list-item-padding-bottom $list-item-padding-left;
+}
+
+@mixin list-item {
+  @include list-row;
+
+  @if (mixin-exists(override-list-item)) {
+    @include override-list-item();
+  }
+}
+
+$list-anchor-hover-background-color: $color-hover !default;
+$list-anchor-hover-color: inherit !default;
+
+@mixin list-anchor {
+  @include list-row;
+
+  color: inherit;
+  margin: #{-$list-item-padding-top} #{-$list-item-padding-right} #{-$list-item-padding-bottom} #{-$list-item-padding-left};
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: $list-anchor-hover-background-color;
+    color: $list-anchor-hover-color;
+
+    @if (mixin-exists(override-list-anchor-hover)) {
+      @include override-list-anchor-hover();
+    }
+  }
+
+  @if (mixin-exists(override-list-anchor)) {
+    @include override-list-anchor();
+  }
+}
+
+
+@mixin list-column {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin list-column-fill {
+  flex: 1;
+}
+
+@mixin list-column-align-top {
+  align-self: flex-start;
+}
+
+@mixin list-column-align-bottom {
+  align-self: flex-end;
+}

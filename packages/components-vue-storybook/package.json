@@ -1,0 +1,11 @@
+{
+  "name": "components-vue-storybook",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "author": "",
+  "scripts": {
+    "start-storybook": "start-storybook -s ./public,./static -p 8001",
+    "build-storybook": "build-storybook -c .storybook -o public/"
+  }
+}

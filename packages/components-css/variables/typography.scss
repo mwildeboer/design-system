@@ -1,0 +1,45 @@
+@function get-rem($px) {
+  @return ($px / 16px) * 1rem;
+}
+
+// Fx = Fx-1 + {INT[(x-2)/4] + 1} * 2
+@function get-font-size($step) {
+  @if $step == 1 {
+    @return 12px;
+  }
+  @return get-font-size($step - 1) + (floor(($step - 2) / 4) + 1) * 2;
+}
+
+// Fx = x * 0.125rem + 0.5rem
+// @function get-font-size($step) {
+//   @return $step * 0.125rem + 0.5rem;
+// }
+
+$font-size-1: get-rem(get-font-size(1)) !default;
+$font-size-2: get-rem(get-font-size(2)) !default;
+$font-size-3: get-rem(get-font-size(3)) !default;
+$font-size-4: get-rem(get-font-size(4)) !default;
+$font-size-5: get-rem(get-font-size(5)) !default;
+$font-size-6: get-rem(get-font-size(6)) !default;
+$font-size-7: get-rem(get-font-size(7)) !default;
+$font-size-8: get-rem(get-font-size(8)) !default;
+$font-size-9: get-rem(get-font-size(9)) !default;
+$font-size-10: get-rem(get-font-size(10)) !default;
+$font-size-11: get-rem(get-font-size(11)) !default;
+$font-size-12: get-rem(get-font-size(12)) !default;
+$font-size-13: get-rem(get-font-size(13)) !default;
+$font-size-14: get-rem(get-font-size(14)) !default;
+$font-size-15: get-rem(get-font-size(15)) !default;
+$font-size-16: get-rem(get-font-size(16)) !default;
+
+
+// $font-size-xs: 0.75rem !default;
+// $font-size-sm: 0.875rem !default;
+// $font-size-base: 1rem !default;
+// $font-size-lg:	1.125rem !default;
+// $font-size-xl:	1.25rem !default;
+// $font-size-2xl:	1.5rem !default;
+// $font-size-3xl:	1.875rem !default;
+// $font-size-4xl:	2.25rem !default;
+// $font-size-5xl:	3rem !default;
+// $font-size-6xl:	4rem !default;

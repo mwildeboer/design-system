@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@import 'font-size';
+@import 'spacing';
+
+@mixin utils($prefix: "", $font-size: true, $spacing: true) {
+  @if $font-size == true {
+    @include font-size();
+  }
+
+  @if $spacing == true {
+    @include spacing();
+  }
+}

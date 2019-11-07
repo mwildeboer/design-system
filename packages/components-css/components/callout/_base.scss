@@ -1,0 +1,17 @@
+$callout-background-color: $color-white !default;
+$callout-border-radius: $spacing-1 !default;
+$callout-border-color: $color-border !default;
+$callout-padding: $spacing-4 !default;
+
+@mixin callout {
+  box-sizing: border-box;
+  background-color: $callout-background-color;
+  border: 1px solid $callout-border-color;
+  border-radius: $callout-border-radius;
+  padding: $callout-padding;
+  max-width: 100%;
+
+  @if (mixin-exists(override-callout)) {
+    @include override-callout();
+  }
+}

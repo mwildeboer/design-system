@@ -1,0 +1,3 @@
+@function is-bem() {
+  @return $css-writing-methodology == "bem" ;
+}

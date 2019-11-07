@@ -1,0 +1,52 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+// Base mixin
+//////////////////////////////////////////////////////////////////////////////////////////
+
+@mixin button-size($font-size: null, $font-weight: null, $height: null, $line-height: null, $padding: null) {
+  font-size: $font-size;
+  padding: $padding;
+  height: $height;
+  line-height: $line-height;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Small
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-small-font-size: $font-size-2 !default;
+$button-small-height: $spacing-8 !default;
+$button-small-line-height: $spacing-8 !default;
+$button-small-padding: 0 $spacing-3 !default;
+
+@mixin button-small {
+  @include button-size(
+    $font-size: $button-small-font-size,
+    $height: $button-small-height,
+    $line-height: $button-small-line-height,
+    $padding: $button-small-padding
+  );
+  @if (mixin-exists(override-button-small)) {
+    @include override-button-small();
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Large
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$button-large-font-size: $font-size-4 !default;
+$button-large-height: $spacing-12 !default;
+$button-large-line-height: $spacing-10 !default;
+$button-large-padding: 0 $spacing-5 !default;
+
+@mixin button-large {
+  @include button-size(
+    $font-size: $button-large-font-size,
+    $height: $button-large-height,
+    $line-height: $button-large-line-height,
+    $padding: $button-large-padding
+  );
+  @if (mixin-exists(override-button-large)) {
+    @include override-button-large();
+  }
+}

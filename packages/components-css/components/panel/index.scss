@@ -1,0 +1,7 @@
+@import "_base";
+
+@mixin panel-classes() {
+  @include block("panel") {
+    @include panel();
+  }
+}

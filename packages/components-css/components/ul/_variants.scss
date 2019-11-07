@@ -1,0 +1,21 @@
+$ul-compact-padding: null !default;
+$ul-compact-margin: null !default;
+$ul-compact-li-margin-top: $spacing-1 !default;
+$ul-compact-li-padding: null !default;
+
+@mixin ul-compact {
+  margin: $ul-compact-margin;
+  padding: $ul-compact-padding;
+
+  > li {
+    padding: $ul-compact-li-padding;
+
+    &:not(:first-child) {
+      margin-top: $ul-compact-li-margin-top;
+    }
+  }
+
+  @if (mixin-exists(override-ul-compact)) {
+    @include override-ul-compact();
+  }
+}

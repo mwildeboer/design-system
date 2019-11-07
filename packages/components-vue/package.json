@@ -1,0 +1,13 @@
+{
+  "name": "@components/vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [],
+  "author": "",
+  "peerDependencies": {
+    "@components/css": "1.0.x",
+    "vue": "2.6.10"
+  }
+}

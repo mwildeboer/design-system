@@ -1,0 +1,19 @@
+$toolbar-background-color: $color-white !default;
+$toolbar-padding-top: 0 !default;
+$toolbar-padding-right: $element-gutter !default;
+$toolbar-padding-bottom: 0 !default;
+$toolbar-padding-left: $element-gutter !default;
+
+@mixin toolbar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $toolbar-background-color;
+  padding: $toolbar-padding-top $toolbar-padding-right $toolbar-padding-bottom $toolbar-padding-left; 
+  max-width: 100%;
+
+  @if (mixin-exists(override-toolbar)) {
+    @include override-toolbar();
+  }
+}

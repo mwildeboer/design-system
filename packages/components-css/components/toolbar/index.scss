@@ -1,0 +1,34 @@
+@import "_base";
+@import "_border";
+@import "_box-shadow";
+@import "_sections";
+
+@mixin toolbar-classes() {
+  @include block("toolbar") {
+    @include toolbar();
+
+    @include element("section") {
+      @include toolbar-section;
+      
+      @include modifier("fill") {
+        @include toolbar-section-fill;
+      }
+
+      @include modifier("centered") {
+        @include toolbar-section-centered;
+      }
+    }
+
+    @include modifier("border") {
+      @include toolbar-bottom-border;
+    }
+
+    @include modifier("border", "bottom") {
+      @include toolbar-top-border;
+    }
+
+    @include modifier("box-shadow") {
+      @include toolbar-bottom-box-shadow;
+    }
+  }
+}

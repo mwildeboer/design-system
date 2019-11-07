@@ -1,0 +1,82 @@
+@mixin block($name) {
+  .#{$name} {
+    $block: $name !global;
+    $this: $name !global;
+
+    @content;
+
+    $block: null !global;
+    $this: null !global;
+  }
+}
+
+@mixin element($name) {
+  $has-element-or-modifier: (global-variable-exists(element) and $element) or
+    (global-variable-exists(modifier) and $modifier);
+
+  @if is-bem() {
+    $this: selector-append($block, "__", $name) !global;
+
+    @if ($has-element-or-modifier) {
+      $element: $this !global;
+
+      .#{$element} {
+        @content;
+      }
+    } @else {
+      $element: $this !global;
+
+      @at-root .#{$element} {
+        @content;
+      }
+    }
+  } @else {
+    $this: #{$name} !global;
+    $element: #{$name} !global;
+
+    .#{$element} {
+      @content;
+    }
+  }
+
+  $this: $block !global;
+  $element: null !global;
+}
+
+@mixin modifier($names...) {
+  @if is-bem() {
+    $selectors: "";
+
+    @each $name in $names {
+      @if str-length($selectors) > 0 {
+        $selectors: "#{$selectors}.#{$this}--#{$name}";
+      } @else {
+        $selectors: "#{$this}--#{$name}";
+      }
+    }
+
+    $modifier: $selectors !global;
+
+    &.#{$modifier} {
+      @content;
+    }
+  } @else {
+    $selectors: "";
+
+    @each $name in $names {
+      @if str-length($selectors) > 0 {
+        $selectors: "#{$selectors}.#{$name}";
+      } @else {
+        $selectors: "#{$this}.#{$name}";
+      }
+    }
+
+    $modifier: $selectors !global;
+
+    &.#{$modifier} {
+      @content;
+    }
+  }
+
+  $modifier: null !global;
+}

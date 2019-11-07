@@ -1,0 +1,13 @@
+$paragraph-color: $color-text !default;
+$paragraph-font-size: $font-size-3 !default;
+$paragraph-margin: 0 0 $spacing-4 0 !default;
+
+@mixin paragraph {
+  color: $paragraph-color;
+  font-size: $paragraph-font-size;
+  margin: $paragraph-margin;
+
+  @if (mixin-exists(override-paragraph)) {
+    @include override-paragraph();
+  }
+}

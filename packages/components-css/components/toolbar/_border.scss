@@ -1,0 +1,18 @@
+$toolbar-border-color: $color-border !default;
+$toolbar-border-width: 1px !default;
+
+@mixin toolbar-top-border() {
+  border-top: $toolbar-border-width solid $color-border;
+
+  @if (mixin-exists(override-toolbar-top-border)) {
+    @include override-toolbar-top-border();
+  }
+}
+
+@mixin toolbar-bottom-border() {
+  border-bottom: $toolbar-border-width solid $color-border;
+
+  @if (mixin-exists(override-toolbar-bottom-border)) {
+    @include override-toolbar-bottom-border();
+  }
+}

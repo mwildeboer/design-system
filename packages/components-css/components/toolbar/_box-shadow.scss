@@ -1,0 +1,18 @@
+$toolbar-top-box-shadow: $box-shadow-base-inverted !default;
+$toolbar-bottom-box-shadow: $box-shadow-base !default;
+
+@mixin toolbar-top-box-shadow() {
+  box-shadow: $toolbar-top-box-shadow;
+    
+  @if (mixin-exists(override-toolbar-top-box-shadow)) {
+    @include override-toolbar-top-box-shadow();
+  }
+}
+
+@mixin toolbar-bottom-box-shadow() {
+  box-shadow: $toolbar-bottom-box-shadow;
+    
+  @if (mixin-exists(override-toolbar-bottom-box-shadow)) {
+    @include override-toolbar-bottom-box-shadow();
+  }
+}

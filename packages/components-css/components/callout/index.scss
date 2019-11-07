@@ -1,0 +1,7 @@
+@import "_base";
+
+@mixin callout-classes() {
+  @include block("callout") {
+    @include callout();
+  }
+}

@@ -1,0 +1,16 @@
+$list-divider-border-color: $color-border !default;
+$list-divider-border-width: 1px !default;
+
+@mixin list-divider() {
+  > * {
+    border-bottom: $list-divider-border-width solid $list-divider-border-color;
+    
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    @if (mixin-exists(override-list-divider)) {
+      @include override-list-divider();
+    }
+  }
+}
